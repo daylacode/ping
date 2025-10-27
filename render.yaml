@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: url-self-ping
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: SELF_URL
+        value: https://url-self-ping.onrender.com
