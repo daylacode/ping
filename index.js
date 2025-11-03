@@ -127,7 +127,7 @@ function ping(url) {
 // Ping chính mình mỗi 14 phút
 setInterval(() => {
   ping(SELF_URL);
-}, 14 * 60 * 1000); // 14 phút
+}, 4 * 60 * 1000); // 14 phút
 
 // Ping ngay khi khởi động
 ping(SELF_URL);
